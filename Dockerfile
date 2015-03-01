@@ -10,17 +10,15 @@ RUN apt-get install -yq cpp gcc make libssl-dev libpcre++-dev zlib1g-dev \
  && cd apr-$APR_VERSION \
  && ./configure \
  && make install \
- && rm -fR apr-* \
 
  && (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-connectors/native/$TCNATIVE_VERSION/source/tomcat-native-$TCNATIVE_VERSION-src.tar.gz | gunzip -c | tar x) \
  && cd tomcat-native-$TCNATIVE_VERSION-src/jni/native \
  && ./configure --with-java-home=/jdk --with-apr=/usr/local/apr --prefix=/usr \
  && make install \
- && rm -fR tomcat-native-* \
 
  && apt-get autoremove -y cpp gcc make libssl-dev libpcre++-dev zlib1g-dev \
  && apt-get clean purge \
- && rm -fR /tmp/* /var/cache/apt/archives/*.deb
+ && rm -fR /tmp/* /apr-* /tomcat-native-*
 
 # ---------------------------------------------------------------------- tomcat8
 ENV TOMCAT_VERSION 8.0.20
