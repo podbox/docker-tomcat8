@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <Loader className="org.apache.catalina.loader.WebappLoader" delegate="false" reloadable="false" loaderClass="org.apache.catalina.loader.ParallelWebappClassLoader" />
+</Context>
