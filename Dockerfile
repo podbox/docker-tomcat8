@@ -32,4 +32,4 @@ RUN (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-8/v$TOMCAT_VERSION/
 ADD context.xml /apache-tomcat/conf/
 
 EXPOSE 8080
-CMD ["/apache-tomcat/bin/catalina.sh", "run", "-security"]
+CMD ["/apache-tomcat/bin/catalina.sh", "run"]
