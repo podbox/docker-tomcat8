@@ -4,7 +4,7 @@ FROM podbox/java8
 ENV APR_VERSION 1.5.1
 ENV TCNATIVE_VERSION 1.1.33
 
-RUN apt-get install -yq cpp gcc make libssl-dev libpcre++-dev zlib1g-dev \
+RUN apt-get update && apt-get install -yq cpp gcc make libssl-dev libpcre++-dev zlib1g-dev \
 
  && (curl -L http://mirrors.ibiblio.org/apache/apr/apr-$APR_VERSION.tar.gz | gunzip -c | tar x) \
  && cd apr-$APR_VERSION \
@@ -32,4 +32,4 @@ RUN (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-8/v$TOMCAT_VERSION/
 ADD context.xml /apache-tomcat/conf/
 
 EXPOSE 8080
-CMD ["/apache-tomcat/bin/catalina.sh", "run"]
+CMD ["/apache-tomcat/bin/catalina.sh", "run", "-security"]
