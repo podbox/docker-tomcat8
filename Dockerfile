@@ -27,7 +27,7 @@ RUN (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-8/v$TOMCAT_VERSION/
  && mv apache-tomcat-$TOMCAT_VERSION /apache-tomcat \
  && rm -fR /apache-tomcat/webapps/* \
 
- && sed -i 's/<\/Host>/<Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="X-Forwarded-Proto"\/><\/Host>/' /apache-tomcat/conf/server.xml
+ && sed -i 's/<\/Host>/<Valve className="org.apache.catalina.valves.RemoteIpValve" remoteIpHeader="X-Forwarded-For" protocolHeader="X-Forwarded-Proto"\/><\/Host>/' /apache-tomcat/conf/server.xml
 
 ADD context.xml /apache-tomcat/conf/
 
