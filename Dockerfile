@@ -6,12 +6,12 @@ ENV TCNATIVE_VERSION 1.1.33
 
 RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib1g-dev \
 
- && (curl -L http://mirrors.ibiblio.org/apache/apr/apr-$APR_VERSION.tar.gz | gunzip -c | tar x) \
+ && (curl -L http://www.us.apache.org/dist/apr/apr-$APR_VERSION.tar.gz | gunzip -c | tar x) \
  && cd apr-$APR_VERSION \
  && ./configure \
  && make install \
 
- && (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-connectors/native/$TCNATIVE_VERSION/source/tomcat-native-$TCNATIVE_VERSION-src.tar.gz | gunzip -c | tar x) \
+ && (curl -L http://www.us.apache.org/dist/tomcat/tomcat-connectors/native/$TCNATIVE_VERSION/source/tomcat-native-$TCNATIVE_VERSION-src.tar.gz | gunzip -c | tar x) \
  && cd tomcat-native-$TCNATIVE_VERSION-src/jni/native \
  && ./configure --with-java-home=/jdk --with-apr=/usr/local/apr --prefix=/usr \
  && make install \
@@ -21,9 +21,9 @@ RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib
  && rm -fR /tmp/* /apr-* /tomcat-native-*
 
 # ---------------------------------------------------------------------- tomcat8
-ENV TOMCAT_VERSION 8.0.26
+ENV TOMCAT_VERSION 8.0.27
 
-RUN (curl -L http://mirrors.ibiblio.org/apache/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | gunzip -c | tar x) \
+RUN (curl -L http://www.us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | gunzip -c | tar x) \
  && mv apache-tomcat-$TOMCAT_VERSION /apache-tomcat \
  && rm -fR /apache-tomcat/webapps/* \
 
