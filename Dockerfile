@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib
  && rm -fR /tmp/* /apr-* /tomcat-native-*
 
 # ---------------------------------------------------------------------- tomcat8
-ENV TOMCAT_VERSION 8.0.27
+ENV TOMCAT_VERSION 8.0.26
 
 RUN (curl -L http://www.us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | gunzip -c | tar x) \
  && mv apache-tomcat-$TOMCAT_VERSION /apache-tomcat \
