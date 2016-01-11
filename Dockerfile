@@ -2,7 +2,7 @@ FROM podbox/java8
 
 # --------------------------------------------------------------------- tcnative
 ENV APR_VERSION 1.5.2
-ENV TCNATIVE_VERSION 1.1.33
+ENV TCNATIVE_VERSION 1.2.3
 
 RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib1g-dev \
 
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib
  && make install \
 
  && (curl -L http://www.us.apache.org/dist/tomcat/tomcat-connectors/native/$TCNATIVE_VERSION/source/tomcat-native-$TCNATIVE_VERSION-src.tar.gz | gunzip -c | tar x) \
- && cd tomcat-native-$TCNATIVE_VERSION-src/jni/native \
+ && cd tomcat-native-$TCNATIVE_VERSION-src/native \
  && ./configure --with-java-home=/jdk --with-apr=/usr/local/apr --prefix=/usr \
  && make install \
 
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib
  && rm -fR /tmp/* /apr-* /tomcat-native-*
 
 # ---------------------------------------------------------------------- tomcat8
-ENV TOMCAT_VERSION 8.0.28
+ENV TOMCAT_VERSION 8.0.30
 
 RUN (curl -L http://www.us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | gunzip -c | tar x) \
  && mv apache-tomcat-$TOMCAT_VERSION /apache-tomcat \
