@@ -2,7 +2,7 @@ FROM podbox/java8
 
 # --------------------------------------------------------------------- tcnative
 ENV APR_VERSION 1.5.2
-ENV TCNATIVE_VERSION 1.2.3
+ENV TCNATIVE_VERSION 1.2.4
 
 RUN apt-get update && apt-get install -yq gcc make libssl-dev libpcre++-dev zlib1g-dev \
 
