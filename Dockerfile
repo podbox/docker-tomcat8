@@ -1,7 +1,7 @@
 FROM podbox/java8
 
 # ---------------------------------------------------------------------- tomcat8
-ENV TOMCAT_VERSION 8.0.35
+ENV TOMCAT_VERSION 8.0.36
 
 RUN (curl -L http://www.us.apache.org/dist/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | gunzip -c | tar x) \
  && mv apache-tomcat-$TOMCAT_VERSION /apache-tomcat \
